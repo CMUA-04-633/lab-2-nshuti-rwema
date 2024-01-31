@@ -1,0 +1,13 @@
+#!/bin/sh
+
+STLINK_PATH="/opt/homebrew/Cellar/open-ocd/0.12.0/share/openocd/scripts/interface/stlink.cfg"
+STM32F4X_PATH="/opt/homebrew/Cellar/open-ocd/0.12.0/share/openocd/scripts/target/stm32f1x.cfg"
+
+# check if homebrew install are in a different path (x86 Macs)
+if [ -d "/usr/local/Cellar/open-ocd/0.12.0/share/openocd/scripts" ]
+then
+    STLINK_PATH="/usr/local/Cellar/open-ocd/0.12.0/share/openocd/scripts/interface/stlink-v2-1.cfg"
+    STM32F4X_PATH="/usr/local/Cellar/open-ocd/0.12.0/share/openocd/scripts/target/stm32f1x.cfg"
+fi
+
+openocd -f $STLINK_PATH -f $STM32F4X_PATH
