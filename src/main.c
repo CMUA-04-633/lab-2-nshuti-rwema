@@ -9,13 +9,25 @@
 
 int main() {
 
-	gpio_init(GPIO_A, 8, MODE_GP_OUTPUT, OUTPUT_PUSH_PULL, OUTPUT_SPEED_LOW, PUPD_NONE, ALT0);
-	gpio_set(GPIO_A, 8);
-	//delay();
-	//gpio_clr(GPIO_A, 8);
+    // Initialize GPIO pins for LEDs
+    gpio_init(GPIO_A, 5, MODE_GP_OUTPUT, OUTPUT_PUSH_PULL, OUTPUT_SPEED_LOW, PUPD_NONE, ALT0);
+    int i = 0;
+    
+   
+    while(1) {
+       // Toggle the state of GPIO pins to blink LEDs
 
+        gpio_set(GPIO_A, 5);
+        for (i = 0; i <= 50000; i++) {
+            // Delay to hold the LED state
+        }
 
-  while(1);
+        gpio_clr(GPIO_A, 5);
+        for (i = 0; i <= 50000; i++) {
+            // Delay to hold the LED state
+        }
+    }
 
-  return 0;
+    return 0;
 }
+
